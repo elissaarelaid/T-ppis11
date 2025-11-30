@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { Mistral } from "@mistralai/mistralai";
-const key = process.env.MISTRAL_API_KEY
+const key = process.env.MISTRAL_API_KEY.valueOf()
 
 console.log("API KEY:", key);
 
