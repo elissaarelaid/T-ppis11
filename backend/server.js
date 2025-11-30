@@ -62,7 +62,6 @@ async function createAgent() {
     completionArgs
   });
 
-  console.log("Loodud agent ID:", agent.id);
   agentId = agent.id;
 }
 
@@ -107,7 +106,6 @@ app.get("/", (req, res) => {
   try {
     await createAgent();
     app.listen(port, () => {
-      console.log(`Server running at http://localhost:${port}`);
     });
   } catch (err) {
     console.error("Agendi loomine ebaõnnestus:", err.statusCode, err.body || err.message);
