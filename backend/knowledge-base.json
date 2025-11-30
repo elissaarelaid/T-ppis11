@@ -1,56 +1,59 @@
 {
-  "intro": "See teadmistebaas käsitleb Eesti ja Baltikumi IKT ning AI lahenduste eksporti Saksamaa e-kaubanduse ja jaemüügi sektorisse. Eesmärk on aidata ettevõtetel aru saada turust, peamistest suundumustest, sisenemissammudest ja baastasemel GDPR-nõuetest online-teenuste puhul.",
+  "intro": "See teadmistebaas käsitleb IKT ja AI teenuste eksporti erinevatesse riikidesse. Eesmärk on anda üldine raamistik, millistele regulatiivsetele ja praktilistele teemadele tuleks uuele turule sisenemisel tähelepanu pöörata. Riigipõhise info (näiteks konkreetne miinimumtöövanus või andmekaitse seaduse nimi) leidmiseks kasutab agent veebipõhist otsingut.",
   "topics": [
     {
-      "id": "market_overview",
-      "title": "Saksamaa e-kaubanduse turu ülevaade",
+      "id": "general_export_checks",
+      "title": "Üldised kontrollid enne IKT ekspordi alustamist",
       "content": [
-        "Saksamaa on üks Euroopa suurimaid e-kaubanduse turge – väga suur tarbijabaas ja tugev ostujõud.",
-        "B2C e-kaubandus on arenenud: kliendid on harjunud veebist tellima, eriti elektroonika, mood, kodukaup ja teenused.",
-        "Turul on tugevad platvormid (nt Amazon.de) ja palju keskmise suurusega e-poode (Mittelstand), kes vajavad paremaid tehnoloogialahendusi.",
-        "B2B e-kaubandus kasvab – paljud tööstus- ja hulgiettevõtted digitaliseerivad müüki."
+        "Selgita, millist teenust täpselt pakud (pilveteenus, SaaS, tarkvaralitsents, konsultatsioon, AI mudeli kasutus jne).",
+        "Uuri, kas sihtriigis on sinu teenuse suhtes eriregulatsioone (näiteks finants-, tervishoiu-, kaitsesektor).",
+        "Kontrolli, kas teenuse eksportimisel võib olla ekspordikontrolli piiranguid (krüptograafia, kaksikkasutusega tehnoloogia).",
+        "Vaata, kas on vaja registreerida juriidiline üksus, filiaal või saab tegutseda olemasoleva ettevõtte alt.",
+        "Analüüsi, milliseid andmeid pead koguma, kuhu neid salvestad ja kes neile ligi pääseb."
       ]
     },
     {
-      "id": "opportunities",
-      "title": "Võimalused Eesti IKT / AI lahendustele",
+      "id": "data_protection",
+      "title": "Andmekaitse ja privaatsus IKT teenuste puhul",
       "content": [
-        "Hea positsioon AI-põhiste soovitusmootorite, otsingu ja personaliseerimise lahenduste pakkumiseks e-poodidele.",
-        "Suurem nõudlus on ka marketing automation-i, e-maili kampaaniate, segmenteerimise ja analüütika tööriistade järele.",
-        "Logistika, laohalduse ja tellimuste halduse integratsioonid (API-põhised lahendused) on hinnas, sest saksa kliendid ootavad väga täpseid tarne- ja jälgimisinfot.",
-        "Eesti ettevõtete tugevuseks on paindlikkus, tehniline tase ja hea hind-kvaliteet suhe."
+        "Peaaegu igal riigil on oma andmekaitse raamistik (näiteks Euroopa Liidus GDPR, Kanadas PIPEDA, Brasiilias LGPD).",
+        "Kaardista, milliseid isikuandmeid sinu teenus töötleb (profiiliandmed, kontaktid, logid, käitumisandmed, asukoht, makseinfo).",
+        "Selgita, mis on andmetöötluse eesmärk ja õiguslik alus (nõusolek, lepingu täitmine, õigustatud huvi jms).",
+        "Kontrolli, kas riik nõuab andmete lokaliseerimist, st kas andmeid peab hoidma konkreetses riigis või regioonis.",
+        "Valmista ette privaatsustingimused ja andmetöötluslepingud partneritega (controller / processor rollid)."
       ]
     },
     {
-      "id": "entry_steps",
-      "title": "Praktilised sammud Saksamaa turule sisenemiseks",
+      "id": "employment_and_work_age",
+      "title": "Tööregulatsioonid ja miinimumtöövanus",
       "content": [
-        "1) Määra konkreetne sihtsegment: kas e-poed (B2C), B2B platvormid või omnichannel-jaemüüjad.",
-        "2) Uuri mõnda konkreetset nišši – nt mood, spordi- ja vabaajakaubad, tööstuskomponendid – ning vaata, milliseid lahendusi nad juba kasutavad.",
-        "3) Koosta lühike, saksa või inglise keeles pitch, mis selgitab selgelt: mis probleemi lahendad, mis kasu toob ja kuidas lahendus integreerub.",
-        "4) Otsi kontakte konverentside, messide (nt e-commerce ja digiturunduse üritused Saksamaal) ning AHK Baltikumi ja EAS/EIS kaudu.",
-        "5) Paku esmalt pilootprojekti (POC), et vähendada kliendi riski ja näidata tulemusi reaalsete andmetega.",
-        "6) Loo selged teenusetingimused ja SLA – saksa kliendid hindavad täpsust ja struktureeritust."
+        "Iga riik määrab ise miinimumtöövanuse ja alaealiste töötamise tingimused (tööaeg, tööliigid, vanema nõusolek jms).",
+        "Enne praktikandi, noore arendaja või osalise koormusega töötaja palkamist uude riiki kontrolli alati kohalikke tööõiguse norme.",
+        "Välismaalt töötaja palkamisel uude riiki tuleb arvestada ka tööloa või immigratsioonireeglitega.",
+        "IKT sektori puhul võivad kehtida samad üldised töönormid, kuid kaug- ja platvormitöö osas võivad olla erisused.",
+        "Riigipõhise miinimumtöövanuse ja muude detailide leidmiseks tuleb kasutada ajakohaseid allikaid (seaduse tekst, valitsuse lehed)."
       ]
     },
     {
-      "id": "gdpr_basics",
-      "title": "GDPR ja andmekaitse online-teenuste puhul",
+      "id": "tax_and_entity",
+      "title": "Maksud ja juriidiline struktuur",
       "content": [
-        "GDPR kehtib kõigile online-teenustele, mis töötlevad Euroopa Liidu isikuandmeid, sh Saksamaa e-poed.",
-        "Oluline on mõelda: milliseid andmeid kogud (nt profiiliandmed, ostuajalugu, klikid, käitumine), mis eesmärgil ja kui kaua neid säilitatakse.",
-        "Eelkõige peab kasutajale selgelt selgitama, millist profiilianalüüsi ja personaliseerimist teed ning millise õigusliku aluse (nõusolek, õigustatud huvi jne) alusel seda tehakse.",
-        "Eesti IKT ettevõte, kes pakub teenust Saksamaa e-poele, on tavaliselt volitatud töötleja (processor) ja saksa e-pood on vastutav töötleja (controller). Tavaliselt sõlmitakse andmetöötlusleping (Data Processing Agreement)."
+        "Selgita, kas pead sihtriigis registreerima juriidilise isiku, filiaali või püsiva tegevuskoha (permanent establishment).",
+        "Vaata, kuidas maksustatakse välismaist teenusepakkujat – näiteks käibemaks/digiteenuste maks, ettevõtte tulumaks, kinnipeetavad maksud.",
+        "Kontrolli topeltmaksustamise vältimise lepingu olemasolu koduriigi ja sihtriigi vahel.",
+        "Hinda, kas on mõistlik kasutada kohalikke raamatupidamis- või maksunõustaja teenuseid, et vältida hilisemaid riske.",
+        "Arvesta, et maksureeglid muutuvad ajas – ajakohane info tuleb võtta ametlikest allikatest või nõustajalt."
       ]
     },
     {
-      "id": "business_culture",
-      "title": "Saksa ärikultuur IKT ja e-kaubanduse projektides",
+      "id": "contracts_and_risk",
+      "title": "Lepingud, vastutus ja riskijuhtimine",
       "content": [
-        "Saksa kliendid eeldavad punktuaalsust, ette kokkulepitud tähtaegadest kinnipidamist ja selget kommunikatsiooni.",
-        "Koosolekud on tavaliselt struktureeritud – soovitav on saata agenda ette ja teha pärast lühike kokkuvõte.",
-        "Otsused võivad võtta kauem aega, sest tihti tehakse sisene põhjalik analüüs ja kaasatakse erinevad osapooled.",
-        "Dokumentatsioon ja kirjalikud kokkulepped on väga olulised – kirjuta üle, mis täpselt kokku lepiti (scope, deliverables, ajakava, hind)."
+        "Lepingutes tuleks selgelt kokku leppida teenuse sisu, teenustasud, tugi, hooldus ja SLA (teenuse taseme kokkulepped).",
+        "Määra, milline seadus on lepingule kohaldatav ja milline kohus või vahekohus lahendab vaidlused.",
+        "Andmekaitse ja infoturbe tingimused peaks olema eraldi ja detailselt lahti kirjutatud (krüpteerimine, ligipääsud, logimine, intsidendihalduse kord).",
+        "Analüüsi, milliseid riske (andmeleke, teenusekatkestus, valeandmed) sa saad kindlustuse või lepinguliste piirangutega maandada.",
+        "Rahvusvaheliste lepingute puhul on sageli mõistlik kasutada juristi, kes tunneb nii koduriigi kui sihtriigi õigust."
       ]
     }
   ]
