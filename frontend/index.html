@@ -6,9 +6,18 @@
   <style>
     body { font-family: Arial; padding: 2rem; }
     #chat-box { width: 500px; margin-bottom: 1rem; }
-    #messages { border: 1px solid #ccc; padding: 1rem; height: 200px; overflow-y: auto; }
-    .user { color: blue; }
-    .bot { color: green; }
+    #messages { border: 1px solid #ccc; padding: 1rem; height: 250px; overflow-y: auto; width: 600px; background: #fafafa; }
+    .user, .bot {
+      margin-bottom: 0.5rem;
+      white-space: normal;
+    }
+    .user { color: #0044cc; }
+    .bot  { color: #007700; }
+    .label {
+      font-weight: bold;
+      margin-right: 0.25rem;
+    }
+
   </style>
 </head>
 <body>
@@ -25,13 +34,22 @@
   const btn = document.getElementById("send-btn");
   const messagesDiv = document.getElementById("messages");
 
+  function formatMarkdown(text) {
+    if (!text) return "";
+
+    let html = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\n/g, "<br>");
+
+    return html;
+  }
+
   async function sendMessage() {
     const prompt = input.value.trim();
     if (!prompt) return;
 
     const userMsg = document.createElement("div");
     userMsg.className = "user";
-    userMsg.textContent = "Sina: " + prompt;
+    userMsg.innerHTML = `<span class="label">Sina:</span> ${prompt}`;
     messagesDiv.appendChild(userMsg);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
@@ -48,9 +66,11 @@
       const botMsg = document.createElement("div");
       botMsg.className = "bot";
       botMsg.textContent = "AI: " + (data.reply || data.error);
+      const reply = data.reply || data.error || "";
+      botMsg.innerHTML = `<span class="label">AI:</span> ${formatMarkdown(reply)}`;
+
       messagesDiv.appendChild(botMsg);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
     } catch (err) {
       const botMsg = document.createElement("div");
       botMsg.className = "bot";
