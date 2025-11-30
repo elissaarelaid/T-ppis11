@@ -1,0 +1,8 @@
+{
+  "description": "",
+  "dependencies": {
+    "@mistralai/mistralai": "^1.10.0",
+    "dotenv": "^17.2.3"
+  },
+    "type": "module"
+}
