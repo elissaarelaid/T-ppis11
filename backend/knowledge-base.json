@@ -1,0 +1,57 @@
+{
+  "intro": "See teadmistebaas käsitleb Eesti ja Baltikumi IKT ning AI lahenduste eksporti Saksamaa e-kaubanduse ja jaemüügi sektorisse. Eesmärk on aidata ettevõtetel aru saada turust, peamistest suundumustest, sisenemissammudest ja baastasemel GDPR-nõuetest online-teenuste puhul.",
+  "topics": [
+    {
+      "id": "market_overview",
+      "title": "Saksamaa e-kaubanduse turu ülevaade",
+      "content": [
+        "Saksamaa on üks Euroopa suurimaid e-kaubanduse turge – väga suur tarbijabaas ja tugev ostujõud.",
+        "B2C e-kaubandus on arenenud: kliendid on harjunud veebist tellima, eriti elektroonika, mood, kodukaup ja teenused.",
+        "Turul on tugevad platvormid (nt Amazon.de) ja palju keskmise suurusega e-poode (Mittelstand), kes vajavad paremaid tehnoloogialahendusi.",
+        "B2B e-kaubandus kasvab – paljud tööstus- ja hulgiettevõtted digitaliseerivad müüki."
+      ]
+    },
+    {
+      "id": "opportunities",
+      "title": "Võimalused Eesti IKT / AI lahendustele",
+      "content": [
+        "Hea positsioon AI-põhiste soovitusmootorite, otsingu ja personaliseerimise lahenduste pakkumiseks e-poodidele.",
+        "Suurem nõudlus on ka marketing automation-i, e-maili kampaaniate, segmenteerimise ja analüütika tööriistade järele.",
+        "Logistika, laohalduse ja tellimuste halduse integratsioonid (API-põhised lahendused) on hinnas, sest saksa kliendid ootavad väga täpseid tarne- ja jälgimisinfot.",
+        "Eesti ettevõtete tugevuseks on paindlikkus, tehniline tase ja hea hind-kvaliteet suhe."
+      ]
+    },
+    {
+      "id": "entry_steps",
+      "title": "Praktilised sammud Saksamaa turule sisenemiseks",
+      "content": [
+        "1) Määra konkreetne sihtsegment: kas e-poed (B2C), B2B platvormid või omnichannel-jaemüüjad.",
+        "2) Uuri mõnda konkreetset nišši – nt mood, spordi- ja vabaajakaubad, tööstuskomponendid – ning vaata, milliseid lahendusi nad juba kasutavad.",
+        "3) Koosta lühike, saksa või inglise keeles pitch, mis selgitab selgelt: mis probleemi lahendad, mis kasu toob ja kuidas lahendus integreerub.",
+        "4) Otsi kontakte konverentside, messide (nt e-commerce ja digiturunduse üritused Saksamaal) ning AHK Baltikumi ja EAS/EIS kaudu.",
+        "5) Paku esmalt pilootprojekti (POC), et vähendada kliendi riski ja näidata tulemusi reaalsete andmetega.",
+        "6) Loo selged teenusetingimused ja SLA – saksa kliendid hindavad täpsust ja struktureeritust."
+      ]
+    },
+    {
+      "id": "gdpr_basics",
+      "title": "GDPR ja andmekaitse online-teenuste puhul",
+      "content": [
+        "GDPR kehtib kõigile online-teenustele, mis töötlevad Euroopa Liidu isikuandmeid, sh Saksamaa e-poed.",
+        "Oluline on mõelda: milliseid andmeid kogud (nt profiiliandmed, ostuajalugu, klikid, käitumine), mis eesmärgil ja kui kaua neid säilitatakse.",
+        "Eelkõige peab kasutajale selgelt selgitama, millist profiilianalüüsi ja personaliseerimist teed ning millise õigusliku aluse (nõusolek, õigustatud huvi jne) alusel seda tehakse.",
+        "Eesti IKT ettevõte, kes pakub teenust Saksamaa e-poele, on tavaliselt volitatud töötleja (processor) ja saksa e-pood on vastutav töötleja (controller). Tavaliselt sõlmitakse andmetöötlusleping (Data Processing Agreement)."
+      ]
+    },
+    {
+      "id": "business_culture",
+      "title": "Saksa ärikultuur IKT ja e-kaubanduse projektides",
+      "content": [
+        "Saksa kliendid eeldavad punktuaalsust, ette kokkulepitud tähtaegadest kinnipidamist ja selget kommunikatsiooni.",
+        "Koosolekud on tavaliselt struktureeritud – soovitav on saata agenda ette ja teha pärast lühike kokkuvõte.",
+        "Otsused võivad võtta kauem aega, sest tihti tehakse sisene põhjalik analüüs ja kaasatakse erinevad osapooled.",
+        "Dokumentatsioon ja kirjalikud kokkulepped on väga olulised – kirjuta üle, mis täpselt kokku lepiti (scope, deliverables, ajakava, hind)."
+      ]
+    }
+  ]
+}
