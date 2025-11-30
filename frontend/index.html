@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <title>Mistral Chat</title>
+  <style>
+    body { font-family: Arial; padding: 2rem; }
+    #chat-box { width: 500px; margin-bottom: 1rem; }
+    #messages { border: 1px solid #ccc; padding: 1rem; height: 200px; overflow-y: auto; }
+    .user { color: blue; }
+    .bot { color: green; }
+  </style>
+</head>
+<body>
+
+<h1>Mistral Chat</h1>
+
+<div id="messages"></div>
+
+<input id="chat-box" type="text" placeholder="Kirjuta midagi..."/>
+<button id="send-btn">Saada</button>
+
+<script>
+  const input = document.getElementById("chat-box");
+  const btn = document.getElementById("send-btn");
+  const messagesDiv = document.getElementById("messages");
+
+  async function sendMessage() {
+    const prompt = input.value.trim();
+    if (!prompt) return;
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "user";
+    userMsg.textContent = "Sina: " + prompt;
+    messagesDiv.appendChild(userMsg);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    input.value = "";
+
+    try {
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
+      const data = await res.json();
+
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot";
+      botMsg.textContent = "AI: " + (data.reply || data.error);
+      messagesDiv.appendChild(botMsg);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    } catch (err) {
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot";
+      botMsg.textContent = "AI: Tekkis viga!";
+      messagesDiv.appendChild(botMsg);
+    }
+  }
+
+  btn.addEventListener("click", sendMessage);
+  input.addEventListener("keypress", e => {
+    if (e.key === "Enter") sendMessage();
+  });
+</script>
+
+</body>
+</html>

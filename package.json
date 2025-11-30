@@ -2,7 +2,8 @@
   "description": "",
   "dependencies": {
     "@mistralai/mistralai": "^1.10.0",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
   },
-    "type": "module"
+  "type": "module"
 }
