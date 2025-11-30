@@ -2,58 +2,460 @@
 <html lang="et">
 <head>
   <meta charset="UTF-8">
-  <title>Mistral Chat</title>
+  <title>Global ICT Export Regulations Advisor</title>
   <style>
-    body { font-family: Arial; padding: 2rem; }
-    #chat-box { width: 500px; margin-bottom: 1rem; }
-    #messages { border: 1px solid #ccc; padding: 1rem; height: 250px; overflow-y: auto; width: 600px; background: #fafafa; }
-    .user, .bot {
-      margin-bottom: 0.5rem;
-      white-space: normal;
-    }
-    .user { color: #0044cc; }
-    .bot  { color: #007700; }
-    .label {
-      font-weight: bold;
-      margin-right: 0.25rem;
+    * {
+      box-sizing: border-box;
     }
 
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f3f4f6;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    h1 {
+      margin: 0 0 1.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #111827;
+    }
+
+    .subtitle {
+      margin-bottom: 1.5rem;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .chat-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e5e7eb;
+    }
+
+    .chat-header {
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e7eb;
+      background: linear-gradient(135deg, #0369a1, #0f766e);
+      color: #f9fafb;
+    }
+
+    .chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.25);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .chat-title-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .chat-title-main {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .chat-title-sub {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .chat-status {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    #messages {
+      padding: 1rem 1.25rem;
+      height: 340px;
+      overflow-y: auto;
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .message-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+      max-width: 88%;
+    }
+
+    .message-row.user {
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    .message-row.bot {
+      margin-right: auto;
+      justify-content: flex-start;
+    }
+
+    .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #f9fafb;
+      flex-shrink: 0;
+    }
+
+    .avatar.user {
+      background: #2563eb;
+    }
+
+    .avatar.bot {
+      background: #0f766e;
+    }
+
+    .bubble {
+      padding: 0.55rem 0.8rem;
+      border-radius: 13px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .bubble.user {
+      background: #2563eb;
+      color: #f9fafb;
+      border-bottom-right-radius: 4px;
+    }
+
+    .bubble.bot {
+      background: #e5f3fb;
+      border-bottom-left-radius: 4px;
+      border: 1px solid #bae6fd;
+    }
+
+    .bubble strong {
+      font-weight: 600;
+    }
+
+    .meta {
+      font-size: 0.7rem;
+      color: #9ca3af;
+      margin-top: 0.12rem;
+      text-align: right;
+    }
+
+    .message-row.bot .meta {
+      text-align: left;
+    }
+
+    .chat-footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 0.75rem 1.25rem 1rem;
+      background: #ffffff;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+    }
+
+    #chat-box {
+      flex: 1;
+      resize: none;
+      min-height: 40px;
+      max-height: 100px;
+      padding: 0.55rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font: inherit;
+      line-height: 1.4;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    #chat-box:focus {
+      outline: none;
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.35);
+      background: #ffffff;
+    }
+
+    #send-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 0.55rem 1.15rem;
+      font: inherit;
+      font-size: 0.9rem;
+      background: #0369a1;
+      color: #f9fafb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background 0.15s, box-shadow 0.15s, transform 0.05s;
+      box-shadow: 0 10px 22px rgba(3, 105, 161, 0.35);
+      white-space: nowrap;
+    }
+
+    #send-btn span.icon {
+      font-size: 1rem;
+    }
+
+    #send-btn:disabled {
+      background: #9ca3af;
+      box-shadow: none;
+      cursor: default;
+      transform: none;
+    }
+
+    #send-btn:not(:disabled):hover {
+      background: #075985;
+    }
+
+    #send-btn:not(:disabled):active {
+      transform: translateY(1px);
+      box-shadow: 0 5px 12px rgba(3, 105, 161, 0.35);
+    }
+
+    .footer-row {
+      margin-top: 0.45rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #6b7280;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hint {
+      opacity: 0.9;
+    }
+
+    .typing-indicator {
+      display: none;
+      align-items: center;
+      gap: 0.3rem;
+      font-style: italic;
+    }
+
+    .typing-indicator.visible {
+      display: inline-flex;
+    }
+
+    .typing-dots {
+      display: inline-flex;
+      gap: 2px;
+    }
+
+    .typing-dots span {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: #6b7280;
+      opacity: 0.2;
+      animation: blink 1s infinite ease-in-out;
+    }
+
+    .typing-dots span:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .typing-dots span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 0.2;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-1px);
+      }
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      #messages {
+        height: 300px;
+      }
+      .message-row {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
+<div class="page">
+  <h1>Global ICT Export Regulations Advisor</h1>
+  <p class="subtitle">
+    Küsi nõu ekspordireeglite, sanktsioonide, litsentside ja muude rahvusvahelise IKT ekspordiga seotud teemade kohta.
+  </p>
 
-<h1>Mistral Chat</h1>
+  <div class="chat-card">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="badge">ICT</div>
+        <div class="chat-title-text">
+          <div class="chat-title-main">Regulations Advisor</div>
+          <div class="chat-title-sub">Eksport, sanktsioonid &amp; compliance</div>
+        </div>
+      </div>
+      <div class="chat-status" id="status-label">Valmis vastama</div>
+    </div>
 
-<div id="messages"></div>
+    <main id="messages">
+      <div class="message-row bot">
+        <div class="avatar bot">AI</div>
+        <div>
+          <div class="bubble bot">
+            Tere! 👋 Olen globaalsete IKT ekspordireeglite nõustaja. Kirjelda oma olukorda võimalikult täpselt
+            (riigid, tooted, teenused) ja aitan sul riske ning nõudeid kaardistada.
+          </div>
+          <div class="meta">just nüüd</div>
+        </div>
+      </div>
+    </main>
 
-<input id="chat-box" type="text" placeholder="Kirjuta midagi..."/>
-<button id="send-btn">Saada</button>
+    <div class="chat-footer">
+      <div class="input-row">
+        <textarea
+                id="chat-box"
+                placeholder="Kirjuta siia oma küsimus või olukorra kirjeldus... (Enter – saada, Shift+Enter – uus rida)">
+        </textarea>
+        <button id="send-btn">
+          <span class="icon">➤</span>
+          Saada
+        </button>
+      </div>
+      <div class="footer-row">
+        <span class="hint">
+          Näide: „Kas ma tohin eksportida pilveteenust Lähis-Ida kliendile, kui dataserverid asuvad EL-is?“
+        </span>
+        <span class="typing-indicator" id="typing-indicator">
+          AI mõtleb vastuse peale
+          <span class="typing-dots"><span></span><span></span><span></span></span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   const input = document.getElementById("chat-box");
   const btn = document.getElementById("send-btn");
   const messagesDiv = document.getElementById("messages");
+  const typingIndicator = document.getElementById("typing-indicator");
+  const statusLabel = document.getElementById("status-label");
 
+  // Markdown -> HTML (paks kiri + reavahetused)
   function formatMarkdown(text) {
     if (!text) return "";
-
     let html = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     html = html.replace(/\n/g, "<br>");
-
     return html;
+  }
+
+  function nowTime() {
+    const d = new Date();
+    return d.toLocaleTimeString("et-EE", { hour: "2-digit", minute: "2-digit" });
+  }
+
+  // LOOME SÕNUMI MULLI
+  function appendMessage({ text, from = "user" }) {
+    const row = document.createElement("div");
+    row.className = `message-row ${from}`;
+
+    const avatar = document.createElement("div");
+    avatar.className = `avatar ${from}`;
+    avatar.textContent = from === "user" ? "Sina" : "AI";
+
+    const wrapper = document.createElement("div");
+
+    const bubble = document.createElement("div");
+    bubble.className = `bubble ${from}`;
+
+    if (from === "bot") {
+      bubble.innerHTML = formatMarkdown(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    const meta = document.createElement("div");
+    meta.className = "meta";
+    meta.textContent = nowTime();
+
+    wrapper.appendChild(bubble);
+    wrapper.appendChild(meta);
+
+    if (from === "user") {
+      // kasutaja mull paremal
+      row.appendChild(wrapper);
+      row.appendChild(avatar);
+    } else {
+      // AI mull vasakul
+      row.appendChild(avatar);
+      row.appendChild(wrapper);
+    }
+
+    messagesDiv.appendChild(row);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  function setLoading(isLoading) {
+    if (!typingIndicator || !statusLabel) return;
+    btn.disabled = isLoading;
+    statusLabel.textContent = isLoading ? "Analüüsib küsimust…" : "Valmis vastama";
+    typingIndicator.classList.toggle("visible", isLoading);
   }
 
   async function sendMessage() {
     const prompt = input.value.trim();
-    if (!prompt) return;
+    if (!prompt || btn.disabled) return;
 
-    const userMsg = document.createElement("div");
-    userMsg.className = "user";
-    userMsg.innerHTML = `<span class="label">Sina:</span> ${prompt}`;
-    messagesDiv.appendChild(userMsg);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
+    appendMessage({ text: prompt, from: "user" });
     input.value = "";
+    input.focus();
+    setLoading(true);
 
     try {
       const res = await fetch("/ask", {
@@ -61,29 +463,40 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt })
       });
+
+      if (!res.ok) {
+        throw new Error("Serveri viga");
+      }
+
       const data = await res.json();
+      const reply = data.reply || data.error || "Midagi läks valesti, proovi hiljem uuesti. 😅";
 
-      const botMsg = document.createElement("div");
-      botMsg.className = "bot";
-      botMsg.textContent = "AI: " + (data.reply || data.error);
-      const reply = data.reply || data.error || "";
-      botMsg.innerHTML = `<span class="label">AI:</span> ${formatMarkdown(reply)}`;
-
-      messagesDiv.appendChild(botMsg);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      appendMessage({ text: reply, from: "bot" });
     } catch (err) {
-      const botMsg = document.createElement("div");
-      botMsg.className = "bot";
-      botMsg.textContent = "AI: Tekkis viga!";
-      messagesDiv.appendChild(botMsg);
+      console.error(err);
+      appendMessage({
+        text: "Ups! Tekkinud on ühenduse või serveri probleem. Proovi mõne aja pärast uuesti. ⚠️",
+        from: "bot"
+      });
+    } finally {
+      setLoading(false);
     }
   }
 
   btn.addEventListener("click", sendMessage);
-  input.addEventListener("keypress", e => {
-    if (e.key === "Enter") sendMessage();
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  window.addEventListener("load", () => {
+    input.focus();
   });
 </script>
+
 
 </body>
 </html>
